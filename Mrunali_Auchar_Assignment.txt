@@ -1,0 +1,39 @@
+package amazontechnicalassigment;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Amazon {
+
+public static void main(String[] args) 
+	{
+
+WebDriver d= new ChromeDriver();
+d.manage().window().maximize();
+
+//Open Amzone url
+d.get("https://www.amazon.in/");
+//search the product
+
+ WebElement search = d.findElement(By.xpath("//input[@id='twotabsearchtextbox']"));
+ search.sendKeys("lenovo laptops");
+ 
+//click on search button
+ WebElement searchbutton = d.findElement(By.xpath("//input[@id='nav-search-submit-button']]"));
+ searchbutton.click();
+
+ //Redirect to the Product link
+ d.get("https://www.amazon.in/Lenovo-Refresh-Backlit-Warranty-82WU0095IN/dp/B0CM36VW4Q/ref=sr_1_1_sspa?crid=35P2XEIX83OFJ&dib=eyJ2IjoiMSJ9.ks3YCxE0HeRJgqZJK4XurQZmtwCagg7n6_vQKMPYfIvCa7UIpt5ljDSrgNIrqMiHadQ4-a2MLjF421mZaz7bgrNBG3Ik39OVm7aP6IvixHHdZ4DrYAYSS3kIfwquRFmv-bKrHO-HA7P_A1RcnykvK9t5a0bFAwmsLxXZR1BK1uwM9eW7I6kKhbdiL896s550nLC3iqMZKvLZvFOBaKS_KOTLav2r5WYgRuuG1e8_fQ8.DF-e5nTgqp8tsnZBQ8Qbi41eNJ7AagDUrfD1k2UqnmQ&dib_tag=se&keywords=lenovo+laptops&qid=1710653182&sprefix=lenovo+laptops%2Caps%2C454&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1");
+ 
+//product add to cart
+ WebElement addtocard = d.findElement(By.xpath("//input[@id='add-to-cart-button']")); 
+ addtocard.click();
+
+//Add to cart confirmation 
+ WebElement cartconfirmation = d.findElement(By.xpath("//span[@class='nav-cart-icon nav-sprite']"));
+ cartconfirmation.click();
+	}
+
+}
